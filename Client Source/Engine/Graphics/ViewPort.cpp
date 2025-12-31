@@ -6,7 +6,7 @@
 #include <Engine/Base/Statistics_internal.h>
 #include <Engine/Interface/UIIME.h>
 extern INDEX ogl_bExclusive;
-//	±è¿µÈ¯ Àü¿ª ¼³Á¤ °ª °¡Á®¿À±â
+//	ï¿½è¿µÈ¯ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 extern BOOL _bClientApp;
 
 // helper for D3D surface
@@ -35,7 +35,7 @@ static HRESULT CreateSwapChain_D3D( CViewPort *pvp, PIX pixSizeI, PIX pixSizeJ)
 	d3dPresentParams.hDeviceWindow = pvp->vp_hWnd;
 
 	// WSS_VIDEOMEMORYFAIL 070615 ------------------------------->><<
-	// ºñµð¿À ¸Þ¸ð¸® ¿¡·¯½Ã ¸Þ¼¼Áö Ãâ·ÂÀ» À§ÇØ
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	// create!
 	hr = _pGfx->gl_pd3dDevice->CreateAdditionalSwapChain( &d3dPresentParams, &pvp->vp_pSwapChain);
 	if(hr) return hr;
@@ -127,12 +127,12 @@ LRESULT CALLBACK CViewPortCLASS_WindowProc(
 		// send it to parent
 		HWND hWndParent = GetParent(hWnd);
 		ASSERT(hWndParent!=NULL);
-		return CallWindowProc( (WNDPROC)GetWindowLong(hWndParent, GWL_WNDPROC),
+		return CallWindowProc( (WNDPROC)GetWindowLongPtr(hWndParent, GWLP_WNDPROC),
 													 hWndParent, Msg, wParam, lParam);
 	}
-	// ÀÌ±âÈ¯ ¼öÁ¤ ½ÃÀÛ (11. 15) : FullScreen¿¡¼­ IMEÃ¢ ¼û±â±â
+	// ï¿½Ì±ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (11. 15) : FullScreenï¿½ï¿½ï¿½ï¿½ IMEÃ¢ ï¿½ï¿½ï¿½ï¿½ï¿½
 	return _bIMEProc?0:DefWindowProc(hWnd, Msg, wParam, lParam);
-	// ÀÌ±âÈ¯ ¼öÁ¤ ³¡ (11. 15)
+	// ï¿½Ì±ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ (11. 15)
 }
 
 
@@ -140,11 +140,11 @@ LRESULT CALLBACK CViewPortCLASS_WindowProc(
 // open overlaid window for rendering context
 void CViewPort::OpenCanvas(void)
 {
-	// ±è¿µÈ¯ : vp_hWndParent À» vp_hWnd·Î »ç¿ë	
+	// ï¿½è¿µÈ¯ : vp_hWndParent ï¿½ï¿½ vp_hWndï¿½ï¿½ ï¿½ï¿½ï¿½	
 	if(_bClientApp)
 	{
-		vp_hWnd = vp_hWndParent;	// ¸ÞÀÎ ÇÚµé »ç¿ë.
-		// À©µµ¿ì ¿µ¿ª ¹× ÇÃ ½ºÅ©¸° Á¤º¸ ¾ò´Â´Ù.
+		vp_hWnd = vp_hWndParent;	// ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â´ï¿½.
 		// determine window and desktopsize
 		RECT rectWindow;
 		GetClientRect( vp_hWndParent, &rectWindow);
@@ -224,7 +224,7 @@ void CViewPort::OpenCanvas(void)
 		  0,0,  // window size
 		  vp_hWndParent,
 		  NULL,
-		  (HINSTANCE)GetWindowLong(vp_hWndParent, GWL_HINSTANCE),
+		  (HINSTANCE)GetWindowLongPtr(vp_hWndParent, GWLP_HINSTANCE),
 		  NULL);
 		ASSERT( vp_hWnd!=NULL);
 		
@@ -274,7 +274,7 @@ void CViewPort::CloseCanvas(void)
 		vp_pSurfDepth = NULL;
 	}
 	// destroy window
-	//	±è¿µÈ¯ : Å¬¶óÀÌ¾ðÆ®¿ëÀÌ ¾Æ´Ñ °æ¿ì¸¸.(Åø¿¡¼­ »ç¿ëÇÏ´Â °æ¿ì)
+	//	ï¿½è¿µÈ¯ : Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½ï¿½ì¸¸.(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½)
 	if(_bClientApp == FALSE)
 	{
 		if( vp_hWnd!=NULL && IsWindow(vp_hWnd)) 
@@ -294,25 +294,25 @@ void CViewPort::Resize(void)
 	PIX pixNewWidth, pixNewHeight;
 	RECT rectWindow;
 
-	//°­µ¿¹Î ¼öÁ¤ ½ÃÀÛ ½Ã½ºÅÛ ¸¶¿ì½º ÀÛ¾÷	09.09
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½Û¾ï¿½	09.09
 	extern BOOL _bFirst;
 	if(!_bFirst)				_bFirst = TRUE;
 
 	extern INDEX d3d_bDeviceChanged;
 	if(!d3d_bDeviceChanged)		d3d_bDeviceChanged = TRUE;
-	//°­µ¿¹Î ¼öÁ¤ ³¡ ½Ã½ºÅÛ ¸¶¿ì½º ÀÛ¾÷		09.09
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ì½º ï¿½Û¾ï¿½		09.09
 	
 	// get the size of the window
 	GetClientRect( vp_hWndParent, &rectWindow);
 	pixNewWidth  = rectWindow.right  - rectWindow.left;
 	pixNewHeight = rectWindow.bottom - rectWindow.top;
-	//¾ÈÅÂÈÆ ¼öÁ¤ ½ÃÀÛ	//(Easy Use World Editor)(0.1)
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	//(Easy Use World Editor)(0.1)
 	if(pixNewWidth < 1) pixNewWidth = 1;
 	if(pixNewHeight < 1) pixNewHeight = 1;
-	//¾ÈÅÂÈÆ ¼öÁ¤ ³¡	//(Easy Use World Editor)(0.1)
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½	//(Easy Use World Editor)(0.1)
 
 	// resize child window
-	//	±è¿µÈ¯ : Å©±âÁ¶Àý ¾ÈÇÔ.
+	//	ï¿½è¿µÈ¯ : Å©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	if(_bClientApp == FALSE)
 	{
 		ASSERT( vp_hWnd!=NULL);
