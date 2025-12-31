@@ -14,6 +14,9 @@
 
 #include "lua.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #ifndef LUALIB_API
 #define LUALIB_API	LUA_API
@@ -139,6 +142,9 @@ LUALIB_API int   lua_dobuffer (lua_State *L, const char *buff, size_t sz,
 #define luaL_opt_int	luaL_optint
 #define luaL_opt_long	luaL_optlong
 
+#ifdef __cplusplus
+}
+#endif
 
 #endif
 
