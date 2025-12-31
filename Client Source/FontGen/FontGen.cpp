@@ -568,7 +568,7 @@ static void Initialize(HWND hWnd)
   ASSERT(hWndCanvas!=NULL);
 
   ClearCharTable();
-  SetWindowLong(hWndCanvas,GWL_WNDPROC,(LONG)CanvasProc);
+  SetWindowLongPtr(hWndCanvas,GWLP_WNDPROC,(LONG_PTR)CanvasProc);
   _pGfx->ResetDisplayMode(GAT_OGL);
  	_pGfx->CreateWindowCanvas(hWndCanvas, &_pvpViewPort, &_pdpDrawPort);
   UpdateWindow(hWndCanvas);

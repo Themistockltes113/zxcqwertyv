@@ -38,8 +38,10 @@ typedef unsigned char lu_byte;
 ** conversion of pointer to integer
 ** this is for hashing only; there is no problem if the integer
 ** cannot hold the whole pointer value
+** MODERNIZED for x64: Use LUAI_UINTPTR (uintptr_t) for proper pointer conversion,
+** then truncate to LUAI_UINT32 for hash value.
 */
-#define IntPoint(p)  ((unsigned int)(lu_mem)(p))
+#define IntPoint(p)  ((LUAI_UINT32)(LUAI_UINTPTR)(p))
 
 
 

@@ -1,5 +1,9 @@
 #include "stdh.h"
 
+#if defined(_WIN64) || defined(USE_PORTABLE_C)
+#include <intrin.h>  // For __rdtsc() intrinsic
+#endif
+
 #include <Engine/Base/Timer.h>
 #include <Engine/Base/Console.h>
 #include <Engine/Base/Stream.h>
@@ -19,6 +23,10 @@
 // Read the Pentium TimeStampCounter
 static inline __int64 ReadTSC(void)
 {
+#if defined(_WIN64) || defined(USE_PORTABLE_C)
+  // Use intrinsic for x64 or portable code
+  return __rdtsc();
+#else
   __int64 mmRet;
   __asm {
     rdtsc
@@ -26,6 +34,7 @@ static inline __int64 ReadTSC(void)
     mov   dword ptr [mmRet+4],edx
   }
   return mmRet;
+#endif
 }
 
 
@@ -40,14 +49,14 @@ TIME _CurrentTickTimer = 0.0f;
 // pointer to global timer object
 CTimer *_pTimer = NULL;
 //! 
-//¾ÈÅÂÈÆ ¼öÁ¤ ½ÃÀÛ	//(Adjust Time Tick)(0.1)
-const TIME	CTimer::TickQuantum = TIME(1/20.0);		// ¿ø·¡ 20 ticks per second
-//¾ÈÅÂÈÆ ¼öÁ¤ ³¡	//(Adjust Time Tick)(0.1)
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	//(Adjust Time Tick)(0.1)
+const TIME	CTimer::TickQuantum = TIME(1/20.0);		// ï¿½ï¿½ï¿½ï¿½ 20 ticks per second
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½	//(Adjust Time Tick)(0.1)
 
-//¾ÈÅÂÈÆ ¼öÁ¤ ½ÃÀÛ	//(Add Sun Moon Entity and etc)(0.2)
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	//(Add Sun Moon Entity and etc)(0.2)
 float g_fGWTime = 0.0f;
 float g_fGWTimeMul = 1.0f;
-//¾ÈÅÂÈÆ ¼öÁ¤ ³¡	//(Add Sun Moon Entity and etc)(0.2)
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½	//(Add Sun Moon Entity and etc)(0.2)
 
 /*
  * Timer interrupt callback function.

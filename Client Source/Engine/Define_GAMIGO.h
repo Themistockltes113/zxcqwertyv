@@ -1,28 +1,29 @@
 #define ADD_CHAT_CEILWRITING_CUT_NA_20081029
 #define ADD_CHAT_SPECIALCHAR_DISABLE_NA_20090210
 #define ADD_SUBJOB
-#define AUTO_RESTART	// [2012/10/18 : Sora] Àç½ÃÀÛ½Ã ÀÚµ¿ ·Î±×ÀÎ
-#define CHAR_EX_MAGE	//2013/01/08 jeil ex ¸ÞÀÌÁö
-#define CHAR_EX_ROGUE	// [2012/08/27 : Sora] EX·Î±× Ãß°¡
-//#define CHRISTMAS_LOGO	//	Å©¸®½º ¸¶½º ·Î±×ÀÎ ·Î°í º¯°æ
-#define DISABLE_PARTY_TYPE_BATTLE	//ÀüÅõ ÆÄÆ¼ ¸ñ·Ï Á¦°Å
+#define AUTO_RESTART	// [2012/10/18 : Sora] ï¿½ï¿½ï¿½ï¿½Û½ï¿½ ï¿½Úµï¿½ ï¿½Î±ï¿½ï¿½ï¿½
+#define CHAR_EX_MAGE	//2013/01/08 jeil ex ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define CHAR_EX_ROGUE	// [2012/08/27 : Sora] EXï¿½Î±ï¿½ ï¿½ß°ï¿½
+//#define CHRISTMAS_LOGO	//	Å©ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½Î°ï¿½ ï¿½ï¿½ï¿½ï¿½
+#define DISABLE_PARTY_TYPE_BATTLE	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #define ENABLE_GUILD_STASH	// new guild stash by rumist
-#define EUROUPEAN_SERVER_LOGIN	// À¯·ÎÇÇ¾È ¼­¹ö ·Î±×ÀÎ [11/2/2012 Ranma]
+#define EUROUPEAN_SERVER_LOGIN	// ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ [11/2/2012 Ranma]
 #define FILTERING_WORD_VISIBLE_NA_20081013
 #define GER_MODIFY_PARTYCAHT_ABRIDGE_KEY_NA_20081224
 #define GM_INVISIBLE_MODE
 #define GUILD_MARK	// sora guild mark define 2011-07-14
-//#define HOLLOWEEN_EVENT_LOGIN // ÇÒ·ÎÀÎ ÀÌº¥Æ®·Î ÀÎÇÑ ·Î±×ÀÎ ÇÁ·¹ÀÓ º¯°æ
-#define IMPROV1107_NOTICESYSTEM	// °øÁö °­È­ ½Ã½ºÅÛ [trylord 11/14/11]
+//#define HOLLOWEEN_EVENT_LOGIN // ï¿½Ò·ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+#define IMPROV1107_NOTICESYSTEM	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ ï¿½Ã½ï¿½ï¿½ï¿½ [trylord 11/14/11]
 #define LINE_CHANGE_BY_WORD
 #define MODIFY_MESSENGER_CHAT_BLANK_NA_20081028
 #define MOONSTONE_COUNT_ADD
 #define NEW_CHAO_SYS
 #define NEW_WEAPONDROP
-#define NEW_WORLD_MAP	// [2012/10/11 : Sora] ¿ùµå¸Ê °³Æí
+#define NEW_WORLD_MAP	// [2012/10/11 : Sora] ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #define RESTART_GAME
 #define SORCERER_SUMMON_VILLAGE_VISIBLE_NA_20081008
-#define UPDATE1107_GUILDSYSTEM	// ±æµå ½Ã½ºÅÛ °³Æí
-#define XTRAP_SECURE_CKBANG_2010_07_20	// 2010-07-20 ¹æÃ¢±Ô - XTrap º¸¾È ¼Ö·ç¼Ç Àû¿ë
+#define UPDATE1107_GUILDSYSTEM	// ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// DISABLED FOR X64 PORT - XTrap anti-cheat removed
+// #define XTRAP_SECURE_CKBANG_2010_07_20	// 2010-07-20 ï¿½ï¿½Ã¢ï¿½ï¿½ - XTrap ï¿½ï¿½ï¿½ï¿½ ï¿½Ö·ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #if defined VER_TEST
 #endif	// VER_TEST

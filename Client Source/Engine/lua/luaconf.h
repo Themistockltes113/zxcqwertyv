@@ -10,6 +10,7 @@
 
 #include <limits.h>
 #include <stddef.h>
+#include <stdint.h>
 
 
 /*
@@ -409,21 +410,20 @@
 ** good enough for your machine. (The definitions in the 'else'
 ** part always works, but may waste space on machines with 64-bit
 ** longs.) Probably you do not need to change this.
+**
+** MODERNIZED for x64: Using stdint.h fixed-width types for portability.
 */
-#if LUAI_BITSINT >= 32
-#define LUAI_UINT32	unsigned int
-#define LUAI_INT32	int
-#define LUAI_MAXINT32	INT_MAX
+#define LUAI_UINT32	uint32_t
+#define LUAI_INT32	int32_t
+#define LUAI_MAXINT32	INT32_MAX
 #define LUAI_UMEM	size_t
 #define LUAI_MEM	ptrdiff_t
-#else
-/* 16-bit ints */
-#define LUAI_UINT32	unsigned long
-#define LUAI_INT32	long
-#define LUAI_MAXINT32	LONG_MAX
-#define LUAI_UMEM	unsigned long
-#define LUAI_MEM	long
-#endif
+
+/*
+@@ LUAI_UINTPTR is an unsigned integer type that can hold a pointer value.
+** Used for pointer-to-integer conversions in hashing.
+*/
+#define LUAI_UINTPTR	uintptr_t
 
 
 /*

@@ -42,9 +42,9 @@ static BITMAP  _bmSplash;
 // for window reposition function
 static PIX _pixLastSizeI, _pixLastSizeJ;
 
-BOOL _bIMEProc = false; // ÀÌ±âÈ¯ ¼öÁ¤ 11.12
+BOOL _bIMEProc = false; // ï¿½Ì±ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ 11.12
 
-//	±è¿µÈ¯:
+//	ï¿½è¿µÈ¯:
 bool	_bWinSize = false;
 
 static void QuitGame(void)
@@ -84,9 +84,9 @@ long FAR PASCAL WindowProc_WindowChanging( HWND hWnd, UINT message,
 		RECT rect;
 		GetClientRect(hWnd, &rect); 
 		FillRect(ps.hdc, &rect, (HBRUSH)GetStockObject(BLACK_BRUSH));
-//¾ÈÅÂÈÆ ¼öÁ¤ ½ÃÀÛ	//(DevPartner Bug Fix)(2005-01-10)
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	//(DevPartner Bug Fix)(2005-01-10)
 		//HDC hdcMem = CreateCompatibleDC(ps.hdc); 
-//¾ÈÅÂÈÆ ¼öÁ¤ ³¡	//(DevPartner Bug Fix)(2005-01-10)
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½	//(DevPartner Bug Fix)(2005-01-10)
 		//SelectObject(hdcMem, _hbmSplash); 
 		//BitBlt(ps.hdc, 0, 0, _bmSplash.bmWidth, _bmSplash.bmHeight, hdcMem, 0, 0, SRCCOPY); 
 //		StretchBlt(ps.hdc, 0, 0, rect.right, rect.bottom,
@@ -183,10 +183,10 @@ long FAR PASCAL WindowProc_Normal( HWND hWnd, UINT message,
 		break;
 	case WM_EXITSIZEMOVE:
 		{
-			//	±è¿µÈ¯ : À©µµ¿ì Ã¢ Å©±â º¯°æÀÌ ¹ß»ýÇÑ °æ¿ì
+			//	ï¿½è¿µÈ¯ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¢ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 			if((sam_bFullScreenActive != 1)&&(_bWinSize))
 			{
-				//	À©µµ¿ì ¸ðµå¿¡¼­ Å©±â º¯°æÀÌ ¹ß»ýÇÑ °æ¿ì¿¡¸¸,
+				//	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å¿¡ï¿½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ ï¿½ï¿½ì¿¡ï¿½ï¿½,
 				_bWinSize = false;
 				//Set_Window_Size();
 			}
@@ -194,7 +194,7 @@ long FAR PASCAL WindowProc_Normal( HWND hWnd, UINT message,
 		}
 	case WM_SIZE:
 		{
-			//	±è¿µÈ¯ : À©µµ¿ì Ã¢ Å©±â º¯°æÀÌ ¹ß»ýÇÑ °æ¿ì º¯¼ö ¼³Á¤.
+			//	ï¿½è¿µÈ¯ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¢ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 			_bWinSize = true;
 #ifdef KALYDO
 			sam_bFullScreenActive = 0;
@@ -218,7 +218,7 @@ long FAR PASCAL WindowProc_Normal( HWND hWnd, UINT message,
 	}
 
 	// if we get to here, we pass the message to default procedure
-	return _bIMEProc?0:DefWindowProc(hWnd, message, wParam, lParam);  // ÀÌ±âÈ¯ ¼öÁ¤ 11.12
+	return _bIMEProc?0:DefWindowProc(hWnd, message, wParam, lParam);  // ï¿½Ì±ï¿½È¯ ï¿½ï¿½ï¿½ï¿½ 11.12
 }
 
 
@@ -332,7 +332,7 @@ void CloseMainWindow(bool p_Exit)
 	}
 
 	// if window exists
-	//	±è¿µÈ¯ : ÁøÂ¥ Á¾·áÀÎ°æ¿ì¸¸.
+	//	ï¿½è¿µÈ¯ : ï¿½ï¿½Â¥ ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½ì¸¸.
 	if(p_Exit)
 	{
 		if( _hwndMain!=NULL) {
@@ -346,7 +346,7 @@ void CloseMainWindow(bool p_Exit)
 
 void ResetMainWindowNormal(bool p_Center)
 {
-	// ±è¿µÈ¯ ÀÌ°Å Á¦°Å. ±ô¹Ú°Å¸²
+	// ï¿½è¿µÈ¯ ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½Ú°Å¸ï¿½
 	// ShowWindow( _hwndMain, SW_HIDE);
 
 	if (sam_bFullScreenActive)
@@ -409,7 +409,7 @@ void ResetMainWindowNormal(bool p_Center)
 void OpenMainWindowNormal( PIX pixSizeI, PIX pixSizeJ,bool p_Center)
 {
 	
-	//	±è¿µÈ¯ : À©µµ ´Ù½Ã»ý¼º ¾ÈÇÔ
+	//	ï¿½è¿µÈ¯ : ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½Ã»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(_hwndMain == NULL)
 	{
 		ASSERT(_hwndMain==NULL);
@@ -436,7 +436,7 @@ void OpenMainWindowNormal( PIX pixSizeI, PIX pixSizeJ,bool p_Center)
 			  WS_EX_APPWINDOW,
 			  APPLICATION_NAME,
 			  "",   // title
-			  // ±è¿µÈ¯
+			  // ï¿½è¿µÈ¯
 			  WS_OVERLAPPED|WS_CAPTION|WS_MINIMIZEBOX|WS_SYSMENU,
 			  //WS_OVERLAPPEDWINDOW,//WS_OVERLAPPED|WS_CAPTION|WS_MINIMIZEBOX|WS_SYSMENU,
 			  10,10,
@@ -452,19 +452,19 @@ void OpenMainWindowNormal( PIX pixSizeI, PIX pixSizeJ,bool p_Center)
 	}
 	else
 	{
-		//	±è¿µÈ¯ : ±âÁ¸ À©µµÀÇ »óÅÂ°ª º¯°æ
+		//	ï¿½è¿µÈ¯ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½ ï¿½ï¿½ï¿½ï¿½
 		if (sam_bFullScreenActive)
 		{
-			//	Ç®¸ðµå
-			SetWindowLong(_hwndMain,GWL_EXSTYLE,WS_EX_TOPMOST | WS_EX_APPWINDOW);
-			SetWindowLong(_hwndMain,GWL_STYLE,WS_POPUP);
+		//	Ç®ï¿½ï¿½ï¿½
+			SetWindowLongPtr(_hwndMain,GWL_EXSTYLE,WS_EX_TOPMOST | WS_EX_APPWINDOW);
+			SetWindowLongPtr(_hwndMain,GWL_STYLE,WS_POPUP);
 		}
 		else
 		{
-			//	Ã¢¸ðµå
-			SetWindowLong(_hwndMain,GWL_EXSTYLE,WS_EX_APPWINDOW);
-			SetWindowLong(_hwndMain,GWL_STYLE, (WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX ));
-			//SetWindowLong(_hwndMain,GWL_STYLE,WS_OVERLAPPEDWINDOW);
+			//	Ã¢ï¿½ï¿½ï¿½
+			SetWindowLongPtr(_hwndMain,GWL_EXSTYLE,WS_EX_APPWINDOW);
+			SetWindowLongPtr(_hwndMain,GWL_STYLE, (WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX ));
+			//SetWindowLongPtr(_hwndMain,GWL_STYLE,WS_OVERLAPPEDWINDOW);
 		}
 	}
 
@@ -477,10 +477,10 @@ void OpenMainWindowNormal( PIX pixSizeI, PIX pixSizeJ,bool p_Center)
 
 	SE_UpdateWindowHandle( _hwndMain, _hDlgWeb);
 
-	//	±è¿µÈ¯ : Å¸ÀÌÆ²ÀÌ¸§ º¯°æ ÇÏÁö¸»ÀÚ ¹ø¿ªÀÌ½´¸¸ ¹ß»ý. 
+	//	ï¿½è¿µÈ¯ : Å¸ï¿½ï¿½Æ²ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½. 
 	/*
 #if defined G_RUSSIA
-	sprintf( achWindowTitle, TRANS("Çàãðóçêà") );
+	sprintf( achWindowTitle, TRANS("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½") );
 #else
 	sprintf( achWindowTitle, TRANS("Loading...") );
 #endif
@@ -495,7 +495,7 @@ void OpenMainWindowNormal( PIX pixSizeI, PIX pixSizeJ,bool p_Center)
 // open the main application window for fullscreen mode
 void OpenMainWindowFullScreen( PIX pixSizeI, PIX pixSizeJ)
 {
-	//	±è¿µÈ¯ : À©µµ ´Ù½Ã»ý¼º ¾ÈÇÔ
+	//	ï¿½è¿µÈ¯ : ï¿½ï¿½ï¿½ï¿½ ï¿½Ù½Ã»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if(_hwndMain == NULL)
 	{
 		ASSERT( _hwndMain==NULL);
@@ -516,9 +516,9 @@ void OpenMainWindowFullScreen( PIX pixSizeI, PIX pixSizeJ)
 	}
 	else
 	{
-		//	±è¿µÈ¯ : ±âÁ¸ À©µµÀÇ »óÅÂ°ª º¯°æ : Ç® È­¸é.
-		SetWindowLong(_hwndMain,GWL_EXSTYLE,WS_EX_TOPMOST | WS_EX_APPWINDOW);
-		SetWindowLong(_hwndMain,GWL_STYLE,WS_POPUP);
+		//	ï¿½è¿µÈ¯ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½ ï¿½ï¿½ï¿½ï¿½ : Ç® È­ï¿½ï¿½.
+		SetWindowLongPtr(_hwndMain,GWL_EXSTYLE,WS_EX_TOPMOST | WS_EX_APPWINDOW);
+		SetWindowLongPtr(_hwndMain,GWL_STYLE,WS_POPUP);
 	}
 
 	_hDlgWeb = CreateDialog(_hInstanceMain, MAKEINTRESOURCE(IDD_WEBPAGE), _hwndMain, WebDialogProc);
@@ -530,10 +530,10 @@ void OpenMainWindowFullScreen( PIX pixSizeI, PIX pixSizeJ)
 
 	SE_UpdateWindowHandle( _hwndMain, _hDlgWeb);
 	
-	//	±è¿µÈ¯ : Å¸ÀÌÆ²ÀÌ¸§ º¯°æ ÇÏÁö¸»ÀÚ ¹ø¿ªÀÌ½´¸¸ ¹ß»ý. 
+	//	ï¿½è¿µÈ¯ : Å¸ï¿½ï¿½Æ²ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½. 
 	/*
 #if defined G_RUSSIA
-	sprintf( achWindowTitle, TRANS("Çàãðóçêà") );
+	sprintf( achWindowTitle, TRANS("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½") );
 #else
 	sprintf( achWindowTitle, TRANS("Loading...") );
 #endif
@@ -547,7 +547,7 @@ void OpenMainWindowFullScreen( PIX pixSizeI, PIX pixSizeJ)
 // open the main application window invisible
 void OpenMainWindowInvisible(void)
 {
-	//	±è¿µÈ¯ : ÃÊ±â »ý¼º ºÎºÐ.
+	//	ï¿½è¿µÈ¯ : ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½.
 	if(_hwndMain == NULL)
 	{
 		ASSERT(_hwndMain==NULL);
@@ -555,7 +555,7 @@ void OpenMainWindowInvisible(void)
 		_hwndMain = CreateWindowEx(
 		  WS_EX_APPWINDOW,
 		  APPLICATION_NAME,
-		  // uniqueÇÑ Å¸ÀÌÆ² ³×ÀÓÀÌ ÀÖ¾î¾ßÁö¸¸ Àâ´Â´Ù. [3/28/2012 rumist]
+		  // uniqueï¿½ï¿½ Å¸ï¿½ï¿½Æ² ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Â´ï¿½. [3/28/2012 rumist]
 		  "BarunsonGames.Inc",   // title
 		  (WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU | WS_MINIMIZEBOX ),
 		  //WS_OVERLAPPEDWINDOW,//	WS_POPUP,
@@ -578,10 +578,10 @@ void OpenMainWindowInvisible(void)
 
 	SE_UpdateWindowHandle( _hwndMain, _hDlgWeb);
 
-	//	±è¿µÈ¯ : Å¸ÀÌÆ²ÀÌ¸§ º¯°æ ÇÏÁö¸»ÀÚ ¹ø¿ªÀÌ½´¸¸ ¹ß»ý. 
+	//	ï¿½è¿µÈ¯ : Å¸ï¿½ï¿½Æ²ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½. 
 	/*
 #if defined
-	sprintf( achWindowTitle, TRANS("Çàãðóçêà?") );
+	sprintf( achWindowTitle, TRANS("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?") );
 #else
 	sprintf( achWindowTitle, TRANS("Loading...") );
 #endif
