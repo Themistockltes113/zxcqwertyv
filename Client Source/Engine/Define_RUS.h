@@ -1,18 +1,19 @@
-#define ADD_SUBJOB	//	»óÀÎ Å¬·¡½º Ãß°¡
-#define AUTO_RESTART	// [2012/10/18 : Sora] Àç½ÃÀÛ½Ã ÀÚµ¿ ·Î±×ÀÎ
-#define CHAR_EX_MAGE	//2013/01/08 jeil ex ¸ÞÀÌÁö
-#define CHAR_EX_ROGUE	// [2012/08/27 : Sora] EX·Î±× Ãß°¡
+#define ADD_SUBJOB	//	ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+#define AUTO_RESTART	// [2012/10/18 : Sora] ï¿½ï¿½ï¿½ï¿½Û½ï¿½ ï¿½Úµï¿½ ï¿½Î±ï¿½ï¿½ï¿½
+#define CHAR_EX_MAGE	//2013/01/08 jeil ex ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define CHAR_EX_ROGUE	// [2012/08/27 : Sora] EXï¿½Î±ï¿½ ï¿½ß°ï¿½
 #define CHATTING_BAN
 #define ENABLE_GUILD_STASH	// new guild stash by rumist
 #define GUILD_MARK	// sora guild mark define 2011-07-14
-//#define HOLLOWEEN_EVENT_LOGIN // ÇÒ·ÎÀÎ ÀÌº¥Æ®·Î ÀÎÇÑ ·Î±×ÀÎ ÇÁ·¹ÀÓ º¯°æ
-#define IMPROV1107_NOTICESYSTEM	// °øÁö °­È­ ½Ã½ºÅÛ [trylord 11/14/11]
+//#define HOLLOWEEN_EVENT_LOGIN // ï¿½Ò·ï¿½ï¿½ï¿½ ï¿½Ìºï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+#define IMPROV1107_NOTICESYSTEM	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ ï¿½Ã½ï¿½ï¿½ï¿½ [trylord 11/14/11]
 #define LINE_CHANGE_BY_WORD
 #define NEW_CHAO_SYS
-#define NEW_WORLD_MAP	// [2012/10/11 : Sora] ¿ùµå¸Ê °³Æí
-#define SIGEWAR_ATTACKRULE	//20110519 ÀÌÈÄ Àû¿ë ¿¹Á¤
-#define UPDATE1107_GUILDSYSTEM	// ±æµå ½Ã½ºÅÛ °³Æí
-#define XTRAP_SECURE_CKBANG_2010_07_20	// XTrap º¸¾È ¼Ö·ç¼Ç Àû¿ë
+#define NEW_WORLD_MAP	// [2012/10/11 : Sora] ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+#define SIGEWAR_ATTACKRULE	//20110519 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+#define UPDATE1107_GUILDSYSTEM	// ï¿½ï¿½ï¿½ ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+// DISABLED FOR X64 PORT - XTrap anti-cheat removed
+// #define XTRAP_SECURE_CKBANG_2010_07_20	// XTrap ï¿½ï¿½ï¿½ï¿½ ï¿½Ö·ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 #if defined VER_TEST
 #endif	// VER_TEST
