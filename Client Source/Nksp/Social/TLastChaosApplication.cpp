@@ -107,7 +107,7 @@ void TLastChaosApplication::init()
 	SetCurrentDirectoryW(L"..");
 
 #ifdef	_DEBUG
-	// µð¹ö±× ¸ðµå¿¡¼­´Â ÇÑ Depth Â÷ÀÌ°¡ ³­´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å¿¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Depth ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	SetCurrentDirectoryW(L"..");
 #endif	// _DEBUG
 
@@ -274,7 +274,7 @@ void TLastChaosApplication::checkRequiredKRF()
 {
 	stringstream msg;
 	
-	// KRF ÆÐÅ°Áö ·Îµå½Ã¿¡ ÆÄÀÏÀÌ ¾ø´Ù¸é °Å±â¿¡ ´ëÇÑ ¿¡·¯¸¦ Ã³¸®ÇÑ´Ù. [11/2/2011 rumist]
+	// KRF ï¿½ï¿½Å°ï¿½ï¿½ ï¿½Îµï¿½Ã¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½ ï¿½Å±â¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ñ´ï¿½. [11/2/2011 rumist]
 	if (KRF_FAILURE(m_ReqPackageRes)) {
 		msg << "failed to load required KRF package! error code: ";
 		msg << m_ReqPackageRes;
@@ -293,9 +293,9 @@ void TLastChaosApplication::requestKRF()
 	m_PackageHandler->setId((void*)packageId);
 
 	// Please note the name of the package is the name used for the package entry in the KMC, NOT the filename
-	// optional ÆÐÅ°Áö Ãß°¡¿¡ ´ëÇÑ ºÎºÐ. [11/2/2011 rumist]
-	// ¿É¼Ç ÆÐÅ°Áö°¡ ÀÖÀ¸¸é(KRF) ÀÌ ÇÔ¼ö·Î È£Ãâ ÇÒ ¼ö ÀÖ´Ù.
-	// ´ëºÎºÐÀº ÀÌ·¸°Ô È£ÃâÇÏÁö ¾Ê°í ³»ºÎ ÄÚµå¸¦ ¼öÁ¤ÇÑ´Ù°í ÇÑ´Ù.
+	// optional ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½. [11/2/2011 rumist]
+	// ï¿½É¼ï¿½ ï¿½ï¿½Å°ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(KRF) ï¿½ï¿½ ï¿½Ô¼ï¿½ï¿½ï¿½ È£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½.
+	// ï¿½ï¿½Îºï¿½ï¿½ï¿½ ï¿½Ì·ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Úµå¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´Ù°ï¿½ ï¿½Ñ´ï¿½.
 	requestPackage("optional", m_PackageHandler);
 
 	stringstream msg;
@@ -505,8 +505,8 @@ void TLastChaosApplication::handlePackages(unsigned int errorType, unsigned int 
 }
 
 //********************************
-// kcp file ¿äÃ»½Ã ÄÝ¹é ¹× ±âÅ¸ Ã³¸® ·çÆ¾ÀÇ Èå¸§ÀÓ.
-// ½ÇÁ¦·Î ¾²Áö ¾ÊÀ½. »èÁ¦¿¹Á¤.
+// kcp file ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½Ý¹ï¿½ ï¿½ï¿½ ï¿½ï¿½Å¸ Ã³ï¿½ï¿½ ï¿½ï¿½Æ¾ï¿½ï¿½ ï¿½å¸§ï¿½ï¿½.
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 void TLastChaosApplication::requestKCP()
 {
 }
@@ -722,9 +722,9 @@ void TLastChaosApplication::handleZonePack(unsigned int errorType, unsigned int 
 
 
 //*****************************************
-// single sign on °ü·Ã ºÎºÐ.
-// °èÁ¤ ¹× pwd¸¦ ¾ò¾î¿Ã ¼ö ÀÖ´Ù.
-// ¾Æ·¡´Â »ùÇÃÄÚµå·Î¼­ ½ÇÁ¦·Î´Â ´Ù¸¥ ¹æ½ÄÀ¸·Î È£ÃâÇÒ ¿¹Á¤.
+// single sign on ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½.
+// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ pwdï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½.
+// ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½Î¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Î´ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 void TLastChaosApplication::testCredentials()
 {
 	// This function will approach the login server of the client that has a kalgus script running.
@@ -921,8 +921,8 @@ void TLastChaosApplication::toggleFullscreen()
 		ChangeDisplaySettings( NULL, 0 );
 		//reset window style and reset size and position
 		ShowWindow(m_MyWindowHandle, SW_HIDE);
-		SetWindowLongW(m_MyWindowHandle, GWL_STYLE, m_DWStyle);
-		SetWindowLongW(m_MyWindowHandle, GWL_EXSTYLE, m_EXDWStyle);
+		SetWindowLongPtrW(m_MyWindowHandle, GWL_STYLE, m_DWStyle);
+		SetWindowLongPtrW(m_MyWindowHandle, GWL_EXSTYLE, m_EXDWStyle);
 		ShowWindow(m_MyWindowHandle, SW_SHOW);
 
 		//set back parent like before full screen
