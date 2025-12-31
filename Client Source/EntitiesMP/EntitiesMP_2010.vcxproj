@@ -613,7 +613,7 @@ copy GERLIVEKalydo\%(Filename).pdb $(ENGINE_DIR)\Bin &gt;nul </Command>
       <OmitFramePointers>false</OmitFramePointers>
       <StringPooling>true</StringPooling>
       <AdditionalIncludeDirectories>./;../;../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>USE_PORTABLE_C;_WIN64;WIN32;NDEBUG;_WINDOWS;_WINDLL;_USRDLL;G_GERMAN;KALYDO;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>USE_PORTABLE_C;_WIN64;WIN32;NDEBUG;_WINDOWS;_WINDLL;_USRDLL;G_GERMAN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <PrecompiledHeaderOutputFile>$(IntDir)EntitiesMP.pch</PrecompiledHeaderOutputFile>
       <PrecompiledHeader>Use</PrecompiledHeader>
@@ -842,7 +842,7 @@ copy GERLIVEKalydo\%(Filename).pdb $(ENGINE_DIR)\Bin &gt;nul </Command>
       <OmitFramePointers>false</OmitFramePointers>
       <StringPooling>true</StringPooling>
       <AdditionalIncludeDirectories>./;../;../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>USE_PORTABLE_C;_WIN64;WIN32;NDEBUG;_WINDOWS;_WINDLL;_USRDLL;G_KOR;KALYDO;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>USE_PORTABLE_C;_WIN64;WIN32;NDEBUG;_WINDOWS;_WINDLL;_USRDLL;G_KOR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <PrecompiledHeaderOutputFile>$(IntDir)EntitiesMP.pch</PrecompiledHeaderOutputFile>
       <PrecompiledHeader>Use</PrecompiledHeader>
@@ -1417,7 +1417,7 @@ copy GERLIVEKalydo\%(Filename).pdb $(ENGINE_DIR)\Bin &gt;nul </Command>
       <MinimalRebuild>true</MinimalRebuild>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <AdditionalIncludeDirectories>./;../;../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>USE_PORTABLE_C;_WIN64;WIN32;_DEBUG;_WINDOWS;_WINDLL;G_KOR;KALYDO;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>USE_PORTABLE_C;_WIN64;WIN32;_DEBUG;_WINDOWS;_WINDLL;G_KOR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <PrecompiledHeaderOutputFile>$(IntDir)EntitiesMP.pch</PrecompiledHeaderOutputFile>
       <PrecompiledHeader>Use</PrecompiledHeader>

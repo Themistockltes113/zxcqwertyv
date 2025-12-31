@@ -616,7 +616,7 @@
       <OmitFramePointers>false</OmitFramePointers>
       <StringPooling>true</StringPooling>
       <AdditionalIncludeDirectories>../;../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>USE_PORTABLE_C;_WIN64;WIN32;NDEBUG;_WINDOWS;_WINDLL;_USRDLL;GAME_EXPORTS;G_KOR;KALYDO;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>USE_PORTABLE_C;_WIN64;WIN32;NDEBUG;_WINDOWS;_WINDLL;_USRDLL;GAME_EXPORTS;G_KOR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\ReleaseKalydo\</AssemblerListingLocation>
       <PrecompiledHeaderOutputFile>.\ReleaseKalydo\GameMP.pch</PrecompiledHeaderOutputFile>
       <PrecompiledHeader>Use</PrecompiledHeader>
@@ -646,8 +646,8 @@
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(OutDir)$(TargetName).dll</OutputFile>
       <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
-      <AdditionalLibraryDirectories>$(OutDir);..\lib\VC100;..\Kalydo\KRFReadLib\Bin</AdditionalLibraryDirectories>
-      <AdditionalDependencies>KRFReadLib.lib;EntitiesMP.lib;user32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir);..\lib\VC100</AdditionalLibraryDirectories>
+      <AdditionalDependencies>EntitiesMP.lib;user32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CustomBuildStep>
       <Command>
@@ -1076,7 +1076,7 @@
       <OmitFramePointers>false</OmitFramePointers>
       <StringPooling>true</StringPooling>
       <AdditionalIncludeDirectories>../;../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>USE_PORTABLE_C;_WIN64;WIN32;NDEBUG;_WINDOWS;_WINDLL;_USRDLL;GAME_EXPORTS;G_GERMAN;KALYDO;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>USE_PORTABLE_C;_WIN64;WIN32;NDEBUG;_WINDOWS;_WINDLL;_USRDLL;GAME_EXPORTS;G_GERMAN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\GERLIVEKalydo\</AssemblerListingLocation>
       <PrecompiledHeaderOutputFile>.\GERLIVEKalydo\GameMP.pch</PrecompiledHeaderOutputFile>
       <PrecompiledHeader>Use</PrecompiledHeader>
@@ -1107,7 +1107,7 @@
       <OutputFile>$(OutDir)$(TargetName).dll</OutputFile>
       <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
       <AdditionalLibraryDirectories>$(OutDir);..\lib\VC100</AdditionalLibraryDirectories>
-      <AdditionalDependencies>EntitiesMP.lib;user32.lib;KRFReadLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>EntitiesMP.lib;user32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CustomBuildStep>
       <Command>
@@ -1182,7 +1182,7 @@
       <MinimalRebuild>true</MinimalRebuild>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <AdditionalIncludeDirectories>../;../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>USE_PORTABLE_C;_WIN64;WIN32;_DEBUG;_WINDOWS;_WINDLL;_USRDLL;GAME_EXPORTS;G_KOR;KALYDO;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>USE_PORTABLE_C;_WIN64;WIN32;_DEBUG;_WINDOWS;_WINDLL;_USRDLL;GAME_EXPORTS;G_KOR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\DebugKalydo\</AssemblerListingLocation>
       <PrecompiledHeaderOutputFile>.\DebugKalydo\GameMP.pch</PrecompiledHeaderOutputFile>
       <PrecompiledHeader>Use</PrecompiledHeader>
@@ -1212,8 +1212,8 @@
       <SubSystem>Windows</SubSystem>
       <OutputFile>$(OutDir)$(TargetName).dll</OutputFile>
       <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
-      <AdditionalLibraryDirectories>$(OutDir);..\lib\VC100;..\Kalydo\KRFReadLib\Bin</AdditionalLibraryDirectories>
-      <AdditionalDependencies>EntitiesMPD.lib;user32.lib;KRFReadLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir);..\lib\VC100</AdditionalLibraryDirectories>
+      <AdditionalDependencies>EntitiesMPD.lib;user32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CustomBuildStep>
       <Command>

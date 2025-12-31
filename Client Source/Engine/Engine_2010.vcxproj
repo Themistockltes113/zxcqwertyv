@@ -770,7 +770,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <OmitFramePointers>false</OmitFramePointers>
       <AdditionalIncludeDirectories>./;../;../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>USE_PORTABLE_C;_WIN64;WIN32;NDEBUG;_WINDOWS;_USRDLL;ENGINE_EXPORTS;G_GERMAN;KALYDO;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>USE_PORTABLE_C;_WIN64;WIN32;NDEBUG;_WINDOWS;_USRDLL;ENGINE_EXPORTS;G_GERMAN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <PrecompiledHeaderOutputFile>$(IntDir)Engine.pch</PrecompiledHeaderOutputFile>
       <PrecompiledHeader>Use</PrecompiledHeader>
@@ -803,7 +803,7 @@
       <OutputFile>$(OutDir)$(TargetName).dll</OutputFile>
       <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
       <AdditionalLibraryDirectories>..\lib\VC100;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>tinyxml.lib;wininet.lib;odbc32.lib;odbccp32.lib;KRFReadLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>tinyxml.lib;wininet.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions> /ignore:4197</AdditionalOptions>
     </Link>
     <CustomBuildStep>
@@ -1244,7 +1244,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <OmitFramePointers>false</OmitFramePointers>
       <AdditionalIncludeDirectories>./;../;../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>USE_PORTABLE_C;_WIN64;WIN32;NDEBUG;_WINDOWS;_USRDLL;ENGINE_EXPORTS;G_KOR;KALYDO;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>USE_PORTABLE_C;_WIN64;WIN32;NDEBUG;_WINDOWS;_USRDLL;ENGINE_EXPORTS;G_KOR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <PrecompiledHeaderOutputFile>$(IntDir)Engine.pch</PrecompiledHeaderOutputFile>
       <PrecompiledHeader>Use</PrecompiledHeader>
@@ -1278,8 +1278,8 @@
       <ModuleDefinitionFile>.\Engine_Kalydo.def</ModuleDefinitionFile>
       <OutputFile>$(OutDir)$(TargetName).dll</OutputFile>
       <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
-      <AdditionalLibraryDirectories>..\lib\VC100;..\Kalydo\KRFReadLib\Bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>KRFReadLib.lib;tinyxml.lib;wininet.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\lib\VC100;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>tinyxml.lib;wininet.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions> /ignore:4197</AdditionalOptions>
     </Link>
     <CustomBuildStep>
@@ -2464,7 +2464,7 @@
       <MinimalRebuild>true</MinimalRebuild>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <AdditionalIncludeDirectories>./;../;../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>USE_PORTABLE_C;_WIN64;_CLIENT_;WIN32;_DEBUG;_WINDOWS;ENGINE_EXPORTS;_WINDLL;_AFXDLL;G_KOR;KALYDO;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>USE_PORTABLE_C;_WIN64;_CLIENT_;WIN32;_DEBUG;_WINDOWS;ENGINE_EXPORTS;_WINDLL;_AFXDLL;G_KOR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BrowseInformation>true</BrowseInformation>
       <PrecompiledHeaderOutputFile>$(IntDir)Engine.pch</PrecompiledHeaderOutputFile>
@@ -2498,8 +2498,8 @@
       <ModuleDefinitionFile>.\Engine_KalydoD.def</ModuleDefinitionFile>
       <OutputFile>$(OutDir)$(TargetName).dll</OutputFile>
       <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
-      <AdditionalLibraryDirectories>..\lib\VC100;..\Kalydo\KRFReadLib\Bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>tinyxmld.lib;wininet.lib;odbc32.lib;odbccp32.lib;KRFReadLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\lib\VC100;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>tinyxmld.lib;wininet.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions> /ignore:4197</AdditionalOptions>
     </Link>
     <CustomBuildStep>
