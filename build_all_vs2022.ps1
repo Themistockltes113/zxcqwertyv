@@ -163,7 +163,9 @@ if (-not $SkipLibs) {
     }
     
     if ($libFailed) {
-        Write-Warn "  Some libraries failed to build. Continuing anyway..."
+        Write-Err "  CRITICAL: Core library build failed. Cannot continue."
+        Write-Err "  Fix the library errors above before building the main solution."
+        exit 1
     }
 } else {
     Write-Info "[3/5] Skipping third-party libraries (--SkipLibs)"

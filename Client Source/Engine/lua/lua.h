@@ -13,8 +13,9 @@
 #include <stdarg.h>
 #include <stddef.h>
 
+#include "luaconf.h"
 
-#define LUA_VERSION	"Lua 5.0.3"
+#define LUA_VERSION	"Lua 5.1"
 #define LUA_COPYRIGHT	"Copyright (C) 1994-2006 Tecgraf, PUC-Rio"
 #define LUA_AUTHORS 	"R. Ierusalimschy, L. H. de Figueiredo & W. Celes"
 
