@@ -115,29 +115,29 @@ CCharacter::CCharacter()
 	memset(&m_avPassiveAddition, 0, sizeof(m_avPassiveAddition));
 	memset(&m_avPassiveRate, 0, sizeof(m_avPassiveRate));
 
-	m_hackAttackCount = PULSE_HACK_ATTACK_COUNT;	// ¾îÅÃ¸Þ¼¼Áö ¿Â ¼ö ÀúÀå
-	m_AttackServerTime = 0;	// °ø¼Ó¿¡ µû¸¥ ÃÖ´ë ¾îÅÃ ½Ã°£
-	m_AttackClientTime = 0; // Å¬¶óÀÌ¾ðÆ®°¡ º¸³½ ¾îÅÃ½Ã°£
+	m_hackAttackCount = PULSE_HACK_ATTACK_COUNT;	// ï¿½ï¿½ï¿½Ã¸Þ¼ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	m_AttackServerTime = 0;	// ï¿½ï¿½ï¿½Ó¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+	m_AttackClientTime = 0; // Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã½Ã°ï¿½
 	m_lastAttackPulse = 0;
 
 	m_pulseDisable = 0;
 #ifdef NEW_ACCERY_ADD
 	m_AddProb	= 0;
 #endif // NEW_ACCERY_ADD
-	cooltime_2142 = 0;			// °Ç°­ÀÇ ¹°¾à
-	cooltime_2143 = 0;			// Áö·ÂÀÇ ¹°¾à
+	cooltime_2142 = 0;			// ï¿½Ç°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	cooltime_2143 = 0;			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	MobScroll = 0;
 
-	m_cooltime_Competition = 0;	// ´ëÀü¿ë ¾ÆÀÌÅÛ
+	m_cooltime_Competition = 0;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	m_nFinalHitrate = 0;
 	m_nFinalAvoidrate = 0;
 
-	m_flySpeed = 15.0f;		// ³¯±â ¼Óµµ
+	m_flySpeed = 15.0f;		// ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½
 	m_attacktype = ATTACK_TYPE_NORMAL;
 	m_attackcount = 0;
 
-	// ¿øÁ¤´ë Ç¥½Ä
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 	m_nExpedLabel = -1;
 
 	m_ep = 0;
@@ -163,28 +163,28 @@ void CCharacter::SetVisible()
 {
 	if (m_bVisible)
 	{
-		// º¸ÀÌ´Â »óÅÂÀÌ¸é
-		// °ø°Ý ¹ÞÁö ¾Ê°Ô ÇÏ°í
+		// ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½Ï°ï¿½
 		DelAttackList(this);
 		{
-			// ÁÖº¯¿¡ À¯Àú¿¡°Ô »ç¶óÁø´Ù°í ¾Ë¸®°í
+			// ï¿½Öºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù°ï¿½ ï¿½Ë¸ï¿½ï¿½ï¿½
 			CNetMsg::SP rmsg(new CNetMsg);
 			DisappearMsg(rmsg, this);
 			m_pArea->SendToCell(rmsg, this);
 		}
-		// »óÅÂ Åä±Û
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 		m_bVisible = false;
 		if (IS_PC(this))
 			TO_PC(this)->m_bImmortal = true;
 	}
 	else
 	{
-		// ¾Èº¸ÀÌ´Â »óÅÂÀÌ¸é
-		// »óÅÂ Åä±Û
+		// ï¿½Èºï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 		m_bVisible = !m_bVisible;
 		TO_PC(this)->m_bImmortal = false;
 		{
-			// ÁÖº¯ À¯Àú¿¡°Ô ³ªÅ¸³²À» ¾Ë¸®°í
+			// ï¿½Öºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½ï¿½ï¿½
 			CNetMsg::SP rmsg(new CNetMsg);
 			AppearMsg(rmsg, this, true);
 			m_pArea->SendToCell(rmsg, this);
@@ -209,7 +209,7 @@ void CCharacter::SendDisappearAllInCell(bool bSendOtherDisappear)
 {
 	{
 		CNetMsg::SP rmsg(new CNetMsg);
-		// Å¸Ä³¸¯ÅÍ¿¡°Ô »ç¶óÁü ¾Ë¸²
+		// Å¸Ä³ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë¸ï¿½
 		DisappearMsg(rmsg, this);
 		if (IS_PC(this))
 			m_pArea->SendToCell(rmsg, this);
@@ -244,7 +244,7 @@ bool CCharacter::CanApplySkill(const CSkillProto* proto, const CSkillLevelProto*
 	if (levelproto == NULL)
 		return false;
 
-	// Àû¿ëÁ¶°Ç °Ë»ç : state
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ : state
 	if ((proto->m_applyState & SCT_DEATH) && !DEAD(this))
 		return false;
 	if (!(proto->m_applyState & SCT_DEATH) && DEAD(this))
@@ -267,7 +267,7 @@ bool CCharacter::CanApplySkill(const CSkillProto* proto, const CSkillLevelProto*
 			return false;
 		if (!(proto->m_applyState & SCT_STAND) || !(proto->m_applyState & SCT_SITDOWN))
 		{
-			// µÑ´Ù ²¨Á® ÀÖ´Â °æ¿ì´Â µÑ´Ù ÄÑÁ® ÀÖ´Â °æ¿ì¿Í µ¿ÀÏ
+			// ï¿½Ñ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if ((proto->m_applyState & SCT_SITDOWN) || (proto->m_applyState & SCT_STAND))
 			{
 				if (proto->m_applyState & SCT_SITDOWN && !pc->IsSetPlayerState(PLAYER_STATE_SITDOWN))
@@ -279,19 +279,19 @@ bool CCharacter::CanApplySkill(const CSkillProto* proto, const CSkillLevelProto*
 		if (proto->m_applyState & SCT_SHIELD && pc->m_wearInventory.wearItemInfo[WEARING_SHIELD] == NULL)
 			return false;
 
-		if (proto->m_index == 433	// °Ç°­ÀÇ ¹°¾à
+		if (proto->m_index == 433	// ï¿½Ç°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				&& cooltime_2142 > gserver->getNowSecond())
 		{
 			return false;
 		}
 
-		if (proto->m_index == 434	// Áö·ÂÀÇ ¹°¾à
+		if (proto->m_index == 434	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				&& cooltime_2143 > gserver->getNowSecond())
 		{
 			return false;
 		}
 
-		if( proto->m_index == 465 // ±¤¼Ó
+		if( proto->m_index == 465 // ï¿½ï¿½ï¿½ï¿½
 				&& m_cooltime_Competition > gserver->getNowSecond() )
 		{
 			return false;
@@ -301,7 +301,7 @@ bool CCharacter::CanApplySkill(const CSkillProto* proto, const CSkillLevelProto*
 	if ((proto->m_applyState & SCT_PEACEZONE) && IsInPeaceZone(false))
 		return false;
 
-	// Àû¿ëÁ¶°Ç °Ë»ç : È¿°ú
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ : È¿ï¿½ï¿½
 	int i;
 	for (i = 0; i < MAX_SKILL_USE_MAGIC; i++)
 	{
@@ -316,32 +316,16 @@ bool CCharacter::CanApplySkill(const CSkillProto* proto, const CSkillLevelProto*
 
 bool CCharacter::CanMove()
 {
-	if (m_assist.m_state & AST_STONE)
-		return false;
-	if (m_assist.m_state & AST_HOLD)
-		return false;
-	if (m_assist.m_state & AST_STURN)
-		return false;
-	if (m_assist.m_state & AST_SLEEP)
-		return false;
-	if (m_assist.m_state & AST_FREEZE)
+	// Combine multiple state checks into a single bitwise operation for efficiency
+	if (m_assist.m_state & (AST_STONE | AST_HOLD | AST_STURN | AST_SLEEP | AST_FREEZE))
 		return false;
 	return true;
 }
 
 bool CCharacter::CanAttack()
 {
-	if (m_assist.m_state & AST_STONE)
-		return false;
-	if (m_assist.m_state & AST_STURN)
-		return false;
-	if (m_assist.m_state & AST_SLEEP)
-		return false;
-	if (m_assist.m_state & AST_FAKEDEATH)
-		return false;
-	if (m_assist.m_state & AST_FREEZE)
-		return false;
-	if(m_assist.m_state & AST_SOUL_TOTEM_BUFF || m_assist.m_state & AST_SOUL_TOTEM_ATTK ) // ÅäÅÛÀº °ø°Ý ºÒ°¡ ½ºÅ³¸¸ »ç¿ë °¡´É
+	// Combine multiple state checks into a single bitwise operation for efficiency
+	if (m_assist.m_state & (AST_STONE | AST_STURN | AST_SLEEP | AST_FAKEDEATH | AST_FREEZE | AST_SOUL_TOTEM_BUFF | AST_SOUL_TOTEM_ATTK))
 		return false;
 	if(IS_PC(this))
 	{
@@ -358,17 +342,8 @@ bool CCharacter::CanAttack()
 
 bool CCharacter::CanSpell()
 {
-	if (m_assist.m_state & AST_STONE)
-		return false;
-	if (m_assist.m_state & AST_SILENT)
-		return false;
-	if (m_assist.m_state & AST_STURN)
-		return false;
-	if (m_assist.m_state & AST_SLEEP)
-		return false;
-	if (m_assist.m_state & AST_FAKEDEATH)
-		return false;
-	if (m_assist.m_state & AST_FREEZE)
+	// Combine multiple state checks into a single bitwise operation for efficiency
+	if (m_assist.m_state & (AST_STONE | AST_SILENT | AST_STURN | AST_SLEEP | AST_FAKEDEATH | AST_FREEZE))
 		return false;
 	return true;
 }
@@ -430,7 +405,7 @@ void CCharacter::ApplyAssistData(ASSISTVALUE* add, ASSISTVALUE* rate)
 	m_maxMP += add->maxmp;
 	m_maxMP += m_maxMP * rate->maxmp / SKILL_RATE_UNIT;
 
-	// 060227 : bs : À¯·á HP,MP È®Àå
+	// 060227 : bs : ï¿½ï¿½ï¿½ï¿½ HP,MP È®ï¿½ï¿½
 	if (rate->hcCashMaxHPUp > 0)
 	{
 		m_maxHP += m_maxHP * rate->hcCashMaxHPUp / SKILL_RATE_UNIT;
@@ -485,21 +460,21 @@ bool CCharacter::IsInRaidZone()
 void CCharacter::applyAuraSkill( CCharacter* ch, int& auraCount, int level, CAssistData* outData )
 {
 	int skillIndex = 0;
-	// npc°¡ ¿À¿À¶ó µð¹öÇÁ°¡ ÀÌ¹Ì °É·Á ÀÖ´ÂÁö È®ÀÎ
-	// À§¿¡ ÀÖ´Â MT_ASSIST, MST_ASSIST_AURA_DARKNESS µîµî Å¸ÀÔÀ¸·Î Ã£´Â °ÍÀº ºÒ°¡´ÉÇÏ´Ù.
-	// À§ÀÇ Å¸ÀÔÀº ³ªÀÌÆ®½¦µµ¿ì ÀÚ½Å¿¡°Ô °Å´Â ¹öÇÁÀÎ ¿À¿À¶ó°í ¿©±â¿¡ ½ºÅ³ ÀÎµ¦½º·Î µÇ¾î ÀÖ´Â °ÍÀº ´ë»ó¿¡°Ô µé¾î°¡´Â µð¹öÇÁÀÌ´Ù.
+	// npcï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½É·ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ È®ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ MT_ASSIST, MST_ASSIST_AURA_DARKNESS ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
+	// ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú½Å¿ï¿½ï¿½ï¿½ ï¿½Å´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¿¡ ï¿½ï¿½Å³ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¾ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ó¿¡°ï¿½ ï¿½ï¿½î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì´ï¿½.
 	if (ch && outData->m_proto && !ch->m_assist.FindBySkillIndex(898) && !ch->m_assist.FindBySkillIndex(899))
 	{
-		// notHelp ¿À·¯´Â Ä³¸¯ÅÍ ¹öÇÁ¿Í ¸ó½ºÅÍ µð¹öÇÁ ½ºÅ³ µÎ°³°¡ ÀÖ´Ù.
-		// Ä³¸¯ÅÍ ¹öÇÁ·Î ¸ó½ºÅÍ¿¡°Ô °É¸± µð¹öÇÁ°¡ °áÁ¤µÈ´Ù.
+		// notHelp ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½Î°ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½.
+		// Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ ï¿½É¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½È´ï¿½.
 		switch(outData->m_proto->m_index)
 		{
-		// ¿À·¯¿Àºê´ÙÅ©´Ï½º
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å©ï¿½Ï½ï¿½
 		case 764:
 			skillIndex = 898;
 			break;
 
-		// ¿À·¯¿ÀºêÀ§Å©´Ï½º
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å©ï¿½Ï½ï¿½
 		case 765:
 			if(IS_PET(ch))
 			{
@@ -521,7 +496,7 @@ void CCharacter::applyAuraSkill( CCharacter* ch, int& auraCount, int level, CAss
 			skillIndex = 899;
 			break;
 
-		//¿À·¯¿ÀºêÀÏ·çÁ¯
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½
 		case 766:
 			if(IS_NPC(ch))
 				return;
@@ -538,7 +513,7 @@ void CCharacter::applyAuraSkill( CCharacter* ch, int& auraCount, int level, CAss
 		{
 			CSkill * skill = gserver->m_skillProtoList.Create(skillIndex, level) ;
 			bool apply = false;
-			// Ä³¸¯ÅÍ·Î ½ºÅ³À» °É¸é npc°¡ °ø°ÝÇÏ¹Ç·Î npc°¡ npc¿¡°Ô ¹öÇÁ¸¦ °Éµµ·Ï ¼³Á¤
+			// Ä³ï¿½ï¿½ï¿½Í·ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½É¸ï¿½ npcï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¹Ç·ï¿½ npcï¿½ï¿½ npcï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Éµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			if(skill)
 			{
 				ApplySkill(ch, ch, skill, -2, apply);
@@ -547,7 +522,7 @@ void CCharacter::applyAuraSkill( CCharacter* ch, int& auraCount, int level, CAss
 		}
 	}
 
-	// ¹öÇÁ°¡ ÀÌ¹Ì °É·Á ÀÖ´Â npc¸¦ Ã£¾Æµµ ¿À¿À¶ó Ä«¿îÆ®´Â ¿Ã·ÁÁØ´Ù.
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½É·ï¿½ ï¿½Ö´ï¿½ npcï¿½ï¿½ Ã£ï¿½Æµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ø´ï¿½.
 	else
 		auraCount++;
 }
@@ -563,7 +538,7 @@ void CCharacter::addItemCoolTime( int item_index )
 
 bool CCharacter::checkItemCoolTime( int item_index, CSkill* skill )
 {
-	//¾ÆÀÌÅÛ ½ºÅ³ ÄðÅ¸ÀÓ Ã¼Å© ÇÑ ÈÄ ¾ÆÁ÷ »ç¿ë ½Ã°£ÀÌ ¾ÈµÇ¾î ÀÖÀ¸¸é return 0;
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½Å¸ï¿½ï¿½ Ã¼Å© ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ÈµÇ¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ return 0;
 	std::map<int, int>::iterator it = this->m_itemCoolMap.find(item_index);
 	if(it != this->m_itemCoolMap.end())
 	{
@@ -592,7 +567,7 @@ bool CCharacter::IsEnemy(CCharacter* tch)
 	if (this == tch)
 		return false;
 
-	//¹¹°¡ µÆ´ø rvrÁ¸¿¡¼­´Â °á»ç´ëÅ¸ÀÔÀÌ °°À¸¸é ¾Æ±º
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½ rvrï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ±ï¿½
 	if( (this->m_pZone != NULL && this->m_pZone->isRVRZone() == true) &&
 		(tch->m_pZone != NULL && tch->m_pZone->isRVRZone() == true) )
 	{
@@ -608,7 +583,7 @@ bool CCharacter::IsEnemy(CCharacter* tch)
 		switch (tch->m_type)
 		{
 		case MSG_CHAR_NPC:
-			// PC°¡ ¼öÈ£º´À» °ø°ÝÇÒ ¶§¿¡´Â °ø¼º Áö¿ª³»¿¡ ÀÖ¾î¾ß ÀûÀ¸·Î ÀÎ½ÄÇÑ´Ù
+			// PCï¿½ï¿½ ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½ï¿½Ñ´ï¿½
 			if (TO_NPC(tch)->m_proto->CheckFlag(NPC_CASTLE_GUARD))
 			{
 				if (GetMapAttr() & MATT_WAR && IS_ATTACK_TEAM(TO_PC(this)->GetJoinFlag(m_pZone->m_index)))
@@ -630,16 +605,16 @@ bool CCharacter::IsEnemy(CCharacter* tch)
 				CPC* ch = TO_PC(this);
 				CPC* target = TO_PC(tch);
 
-				// °°Àº ÆÄÆ¼´Â ÀûÀÌ µÉ ¼ö ¾øÀ½ : ÆÄÆ¼°¡ °¡Àå ³ôÀº ¿ì¼±¼øÀ§¸¦ °¡Áü
+				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ì¼±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if (ch->IsParty() && target->IsParty() && ch->m_party == target->m_party)
 					return false;
 				if( ch->IsExped() && target->IsExped() && ch->m_Exped == target->m_Exped )
 					return false;
 
-				// °°Àº ±æµå´Â ÀûÀÌ µÉ ¼ö ¾øÀ½ -> °á»ç´ë°¡ ´Ù¸£´Ù¸é ÀûÀÌ µÉ¼öµµ ÀÖÀ½
+				// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ -> ï¿½ï¿½ï¿½ë°¡ ï¿½Ù¸ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½É¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				if (ch->m_guildInfo && target->m_guildInfo && ch->m_guildInfo->guild() == target->m_guildInfo->guild())
 				{
-					// Áê³ë¸¶À» FREEPKZONE ¿¡¼­´Â °°Àº ±æµåµµ °ø°Ý°¡´É
+					// ï¿½ï¿½ë¸¶ï¿½ï¿½ FREEPKZONE ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½åµµ ï¿½ï¿½ï¿½Ý°ï¿½ï¿½ï¿½
 					if(ch->m_pZone && ((ch->m_pZone->m_index == ZONE_START) || (ch->m_pZone->IsWarGroundZone()))
 							&& (ch->GetMapAttr() & MATT_FREEPKZONE)
 							&& ch->IsSetPlayerState(PLAYER_STATE_PKMODE)
@@ -650,7 +625,7 @@ bool CCharacter::IsEnemy(CCharacter* tch)
 						return true;
 					}
 
-					//µå¶óÅº PVP °æ±âÀå¿¡¼­´Â °°Àº ±æµåµµ °ø°ÝÀÌ °¡´ÉÇÏµµ·Ï ÇÑ´Ù.
+					//ï¿½ï¿½ï¿½Åº PVP ï¿½ï¿½ï¿½ï¿½å¿¡ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½åµµ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½.
 					if( ch->IsSetPlayerState(PLAYER_STATE_PKMODE)
 							&& ch->m_pArea->m_zone->m_index == ZONE_PK_TOURNAMENT
 							&& target->IsSetPlayerState(PLAYER_STATE_PKMODE)
@@ -661,8 +636,8 @@ bool CCharacter::IsEnemy(CCharacter* tch)
 #ifdef EXTREME_CUBE
 					if(!gserver->m_extremeCube.IsGuildCubeTime())
 					{
-						// ÆÄÆ¼Å¥ºêÀÏ ¶§
-						// Å¥ºê ¾È¿¡¼­´Â °°Àº ±æµå¶óµµ °ø°Ý°¡´É
+						// ï¿½ï¿½Æ¼Å¥ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+						// Å¥ï¿½ï¿½ ï¿½È¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý°ï¿½ï¿½ï¿½
 						if(ch->m_pZone != NULL && !ch->m_pZone->IsExtremeCube())
 							return false;
 
@@ -675,7 +650,7 @@ bool CCharacter::IsEnemy(CCharacter* tch)
 
 					return false;
 				}
-				// ±æµåÀü
+				// ï¿½ï¿½ï¿½ï¿½ï¿½
 				if (ch->m_guildInfo && (ch->m_guildInfo->guild()->battleState() == GUILD_BATTLE_STATE_ING)
 						&& target->m_guildInfo && (target->m_guildInfo->guild()->battleState() == GUILD_BATTLE_STATE_ING))
 				{
@@ -686,8 +661,8 @@ bool CCharacter::IsEnemy(CCharacter* tch)
 					}
 				}
 
-				// µÑ´Ù °ø¼º Âü¿©ÀÚ ÀÌ¸é
-				// ¼­·ÎÀÇ Âü¿© ÇÃ·¡±×°¡ Àû´ëÀûÀÌ¸é ÀûÀÌ´Ù
+				// ï¿½Ñ´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½×°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½
 #ifdef CHANGE_WARCASTLE_SETTING
 				int nZoneIdx = -1;
 				CWarCastle* castle = CWarCastle::GetCastleObject(ZONE_DRATAN);
@@ -705,15 +680,15 @@ bool CCharacter::IsEnemy(CCharacter* tch)
 				}
 				if ( nZoneIdx > 0 )
 				{
-					// ¼­·Î Àû´ë °ü°ÔÀÏ °æ¿ì ÀüÀå ³», ÀüÀå ¹Û ¸ðµÎ °ø°Ý °¡´ÉÇÏ´Ù.
+					// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 					if ( (IS_DEFENSE_TEAM(ch->GetJoinFlag(nZoneIdx)) && IS_ATTACK_TEAM(target->GetJoinFlag(nZoneIdx))) ||
 							( IS_ATTACK_TEAM(ch->GetJoinFlag(nZoneIdx)) && target->GetJoinFlag(nZoneIdx) != WCJF_NONE) )
 					{
 						return true;
 					}
-					// °ø°ÝÀÚ°¡ °ø¼ö¼ºÀÌ¸é, 3¼¼·Â °ø°Ý °¡´ÉÇÏ´Ù.
+					// ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½, 3ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.
 #ifdef CHECK_CASTLE_AREA
-					// °ø¼ºÁ¸ÀÌ°í, °ø¼º Áö¿ª ³»ÀÌ´Ù.
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì°ï¿½, ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½.
 					if ((ch->m_pZone->m_index == nZoneIdx && tch->m_pZone->m_index == nZoneIdx) &&
 							(ch->GetMapAttr() & MATT_WAR || ch->m_pZone->IsWarZone((int)ch->m_pos.m_x, (int)ch->m_pos.m_z)) &&
 							(tch->GetMapAttr() & MATT_WAR || tch->m_pZone->IsWarZone((int)tch->m_pos.m_x, (int)tch->m_pos.m_z)) )
@@ -721,7 +696,7 @@ bool CCharacter::IsEnemy(CCharacter* tch)
 					if ( ch->m_pZone->m_index == nZoneIdx && tch->m_pZone->m_index == nZoneIdx && ch->GetMapAttr() == tch->GetMapAttr() && ch->GetMapAttr() & MATT_WAR )
 #endif // CHECK_CASTLE_AREA
 					{
-						// °ø,¼ö¼º vs 3¼¼·Â
+						// ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ vs 3ï¿½ï¿½ï¿½ï¿½
 						if ( (IS_DEFENSE_TEAM(ch->GetJoinFlag(nZoneIdx)) && target->GetJoinFlag(nZoneIdx) == WCJF_NONE ) ||
 								( IS_ATTACK_TEAM(ch->GetJoinFlag(nZoneIdx)) && target->GetJoinFlag(nZoneIdx) == WCJF_NONE) )
 							return true;
@@ -758,7 +733,7 @@ bool CCharacter::IsEnemy(CCharacter* tch)
 				}
 //#endif
 				/////////////////////////////////////////////
-				// BANGWALL : 2005-07-18 ¿ÀÀü 11:38:17
+				// BANGWALL : 2005-07-18 ï¿½ï¿½ï¿½ï¿½ 11:38:17
 				// Comment : freepkzone
 
 				if ( ch->GetMapAttr() == tch->GetMapAttr() && ch->GetMapAttr() & MATT_FREEPKZONE )
@@ -774,7 +749,7 @@ bool CCharacter::IsEnemy(CCharacter* tch)
 					bool bSkipLevel = false;
 
 #ifdef CHANGE_WARCASTLE_SETTING
-					// °ø¼ºÀü Áö¿ª¿¡¼­ °ø¼º ÁøÇà½Ã¿¡´Â ·¹º§ °Ë»ç ¾ÈÇÔ
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½ï¿½
 					if (ch->m_pZone->m_index == tch->m_pZone->m_index && ch->GetMapAttr() == tch->GetMapAttr() && ch->GetMapAttr() & MATT_WAR)
 #else	// CHANGE_WARCASTLE_SETTING
 					if (ch->m_pZone->m_index == tch->m_pZone->m_index && ch->m_pZone->m_index == CWarCastle::GetCurSubServerCastleZoneIndex() && ch->GetMapAttr() == tch->GetMapAttr() && ch->GetMapAttr() & MATT_WAR)
@@ -863,7 +838,7 @@ bool CCharacter::IsEnemy(CCharacter* tch)
 			case MSG_CHAR_APET :
 				tpc = TO_APET(tch)->GetOwner();
 				break;
-			// ÀÏ¹Ý ¸ó½ºÅÍ°¡ Å×ÀÌ¹ÖµÈ ¸ó½ºÅÍ¸¦ ÀûÀ¸·Î ÀÎ½Ä
+			// ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½Ì¹Öµï¿½ ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½
 			case MSG_CHAR_NPC :
 				{
 					CNPC* target_npc = TO_NPC(tch);
@@ -886,17 +861,17 @@ bool CCharacter::IsEnemy(CCharacter* tch)
 				break;
 			}
 
-			// ¿©±â·Î ³Ñ¾î¿À¸é Å×ÀÌ¹Ö npc°¡ ÀÏ¹Ý npc¸¦ Å¸°ÙÀ¸·Î »ó´ëÇÏ´Â ÁßÀÌ´Ù.
-			// tpc°¡ ¾ø°í npc ÀÌ¸é ÀÏ¹Ý ¸ó½ºÅÍ ÀÌ¹Ç·Î ÀûÀÌ´Ù.
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¹ï¿½ npcï¿½ï¿½ ï¿½Ï¹ï¿½ npcï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½.
+			// tpcï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ npc ï¿½Ì¸ï¿½ ï¿½Ï¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹Ç·ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½.
 			if ( tpc == NULL && IS_NPC(tch) && TO_NPC(this)->Check_MobFlag( STATE_MONSTER_TAMING ) )
 			{
-				// ÀÚ±â ÀÚ½ÅÀÌ¸é ÀûÀÌ ¾Æ´Ô
+				// ï¿½Ú±ï¿½ ï¿½Ú½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´ï¿½
 				if ( this == tch )
 				{
 					return false;
 				}
 
-				// ´Ù¸¥ ¸ó½ºÅÍ´Â Àû
+				// ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½Í´ï¿½ ï¿½ï¿½
 				else
 				{
 					return true;
@@ -923,7 +898,7 @@ bool CCharacter::IsEnemy(CCharacter* tch)
 							&& ( IS_ATTACK_TEAM( owner->GetJoinFlag( owner->m_pZone->m_index ) )
 								 || IS_DEFENSE_TEAM( owner->GetJoinFlag( owner->m_pZone->m_index ) ) ) )
 					{
-						if( IS_ATTACK_TEAM(owner->GetJoinFlag( owner->m_pZone->m_index) ) )// °ø¼º ÃøÀÌ¶ó¸é
+						if( IS_ATTACK_TEAM(owner->GetJoinFlag( owner->m_pZone->m_index) ) )// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½
 						{
 							if( TO_NPC(tch)->m_proto->CheckFlag(NPC_WARCASTLE) )
 								return true;
@@ -936,7 +911,7 @@ bool CCharacter::IsEnemy(CCharacter* tch)
 
 			if (tpc)
 			{
-				// ¼öÈ£º´Àº °ø¼ºÃø¸¸ ÀûÀ¸·Î ÀÎ½Ä
+				// ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½
 				CNPC* npc_ = TO_NPC(this);
 				if (npc_->m_proto->CheckFlag(NPC_CASTLE_GUARD | NPC_CASTLE_TOWER))
 				{
@@ -946,7 +921,7 @@ bool CCharacter::IsEnemy(CCharacter* tch)
 						return false;
 				}
 
-				// Å×ÀÌ¹ÖµÈ npc´Â pc¸¦ ¾Æ±ºÀ¸·Î ÀÎ½Ä, Èú ½ºÅ³À» »ç¿ëÇØÁØ´Ù.
+				// ï¿½ï¿½ï¿½Ì¹Öµï¿½ npcï¿½ï¿½ pcï¿½ï¿½ ï¿½Æ±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î½ï¿½, ï¿½ï¿½ ï¿½ï¿½Å³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 				if ( npc_->Check_MobFlag( STATE_MONSTER_TAMING )  )
 				{
 					return false;
@@ -964,7 +939,7 @@ bool CCharacter::IsEnemy(CCharacter* tch)
 					if( owner == tpc )
 						return false;
 
-					if( IsRaList(owner, tpc) ) // ¿À³Ê¿Í Á¤´ç¹æÀ§ PC¶ó¸é ÀûÀÌ´Ù.
+					if( IsRaList(owner, tpc) ) // ï¿½ï¿½ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ PCï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½.
 						return true;
 
 					if( npc_->Check_MobFlag( STATE_MONSTER_TRAP) || npc_->Check_MobFlag( STATE_MONSTER_SUICIDE ) )
@@ -978,14 +953,14 @@ bool CCharacter::IsEnemy(CCharacter* tch)
 
 					if( castle != NULL && castle->GetState() != WCSF_NORMAL && owner->GetMapAttr() & MATT_WAR
 							&& ( IS_ATTACK_TEAM( owner->GetJoinFlag( owner->m_pZone->m_index ) )
-								 || IS_DEFENSE_TEAM( owner->GetJoinFlag( owner->m_pZone->m_index ) ) ) ) // ¿À³Ê°¡ °ø¼º¿¡ Âü¿©ÇØ ÀÖ´Ù¸é
+								 || IS_DEFENSE_TEAM( owner->GetJoinFlag( owner->m_pZone->m_index ) ) ) ) // ï¿½ï¿½ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ù¸ï¿½
 					{
-						if( IS_ATTACK_TEAM(owner->GetJoinFlag( owner->m_pZone->m_index) ) )// °ø¼º ÃøÀÌ¶ó¸é
+						if( IS_ATTACK_TEAM(owner->GetJoinFlag( owner->m_pZone->m_index) ) )// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½
 						{
 							if( IS_DEFENSE_TEAM( tpc->GetJoinFlag(owner->m_pZone->m_index) )  )
 								return true;
 						}
-						else if(IS_DEFENSE_TEAM( owner->GetJoinFlag(owner->m_pZone->m_index) ) ) // ¼ö¼º ÃøÀÌ¶ó¸é
+						else if(IS_DEFENSE_TEAM( owner->GetJoinFlag(owner->m_pZone->m_index) ) ) // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½
 						{
 							if( IS_ATTACK_TEAM( tpc->GetJoinFlag(owner->m_pZone->m_index) )  )
 								return true;
@@ -1141,7 +1116,7 @@ unsigned short CCharacter::GetMapAttr()
 
 void CCharacter::ApplyPassiveSkill(CSkill* skill, int param)
 {
-	// ÆÐ½Ãºê ¾ø´Â Ä³¸¯Àº ½ºÅµ
+	// ï¿½Ð½Ãºï¿½ ï¿½ï¿½ï¿½ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Åµ
 	switch (m_type)
 	{
 	case MSG_CHAR_APET:
@@ -1172,7 +1147,7 @@ void CCharacter::ApplyPassiveSkill(CSkill* skill, int param)
 	if (slp == NULL)
 		return ;
 
-	// ÇÊ¿ä ½ºÅÈ °Ë»ç : PC
+	// ï¿½Ê¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ : PC
 	if (IS_PC(this))
 	{
 		CPC* pc = TO_PC(this);
@@ -1189,7 +1164,7 @@ void CCharacter::ApplyPassiveSkill(CSkill* skill, int param)
 			return ;
 	}
 
-	// Àû¿ë Á¶°Ç °Ë»ç
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
 	if (!CanApplySkill(sp, slp))
 		return ;
 
@@ -1205,7 +1180,7 @@ void CCharacter::ApplyPassiveSkill(CSkill* skill, int param)
 		int realPowerValue = mlp->m_nPowerValue * param / 100;
 		int realHitrateValue = mlp->m_nHitrateValue * param / 100;
 
-		// È¿°ú Àû¿ë
+		// È¿ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 #define APPVAL(v)		{ \
 						switch (mp->m_damagetype) \
 						{ \
@@ -1218,7 +1193,7 @@ void CCharacter::ApplyPassiveSkill(CSkill* skill, int param)
 						} \
 					}
 
-		// ¹æ¾î °ü·ÃÀº ¼ÒÈ¯¼öµéµµ Àû¿ë
+		// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯ï¿½ï¿½ï¿½éµµ ï¿½ï¿½ï¿½ï¿½
 		switch (mp->m_type)
 		{
 		case MT_STAT:
@@ -1557,7 +1532,7 @@ bool CCharacter::IsDisable()
 
 bool CCharacter::ChekAttackType()
 {
-	// true °ø¼Ó°Ë»ç , false °Ë»ç ¾ÈÇÔ
+	// true ï¿½ï¿½ï¿½Ó°Ë»ï¿½ , false ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if( m_attacktype == ATTACK_TYPE_NORMAL )
 	{
 		m_attackcount = 0;
@@ -1615,7 +1590,7 @@ void CPC::ApplyTitle()
 
 	int title_count = 0;
 	title_count = this->m_titleList.m_nCount;
-	// ¸¸¾à titleÀÌ ¾øÀ¸¸é return;
+	// ï¿½ï¿½ï¿½ï¿½ titleï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ return;
 	if (title_count == 0)
 		return ;
 
@@ -1735,7 +1710,7 @@ void CPC::ApplyTitle()
 				break;
 			case OPTION_NOT_USED_25:
 				break;
-////////// ¿©±â¼­ ºÎÅÍ´Â °ø¼º Á¶ÇÕ ¾ÆÀÌÅÛ¿ë ¿É¼Ç //////////
+////////// ï¿½ï¿½ï¿½â¼­ ï¿½ï¿½ï¿½Í´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½É¼ï¿½ //////////
 			case OPTION_MIX_STR:
 				break;
 			case OPTION_MIX_DEX:
@@ -1762,8 +1737,8 @@ void CPC::ApplyTitle()
 				break;
 			case OPTION_MIX_SLOW:
 				break;
-////////// ¿©±â±îÁö ºÎÅÍ´Â °ø¼º Á¶ÇÕ ¾ÆÀÌÅÛ¿ë ¿É¼Ç //////////
-			case OPTION_DOWN_LIMITLEVEL: //// ¾ÆÀÌÅÛ¿¡ ¹ß¸° ¿É¼Ç »ç¿ëºÒ°¡
+////////// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Í´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½É¼ï¿½ //////////
+			case OPTION_DOWN_LIMITLEVEL: //// ï¿½ï¿½ï¿½ï¿½ï¿½Û¿ï¿½ ï¿½ß¸ï¿½ ï¿½É¼ï¿½ ï¿½ï¿½ï¿½Ò°ï¿½
 				break;
 			case OPTION_INCREASE_INVEN:
 				m_opIncreaseInven += nvalue;
@@ -2013,7 +1988,7 @@ void CPC::CastllanTitleDelete(int castleZoneindex, bool bExclude, char bCastella
 		{
 			bool bDelete = false;
 			CTitle * title = node->m_title;
-			if(bExclude)		// castleZoneindex ÀÌ¿ÜÀÇ °ÍÀ» Áö¿ò
+			if(bExclude)		// castleZoneindex ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			{
 				if( castleZoneindex == -1 || title->m_proto->m_castleNum != castleZoneindex )
 				{
@@ -2021,7 +1996,7 @@ void CPC::CastllanTitleDelete(int castleZoneindex, bool bExclude, char bCastella
 				}
 				else
 				{
-					// °°Àº castle È£ÄªÀÌ¸é ÁöÀ§°Ë»ç¸¦ ÇÑ´Ù.
+					// ï¿½ï¿½ï¿½ï¿½ castle È£Äªï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ë»ç¸¦ ï¿½Ñ´ï¿½.
 					CItemProto* proto = gserver->m_itemProtoList.FindIndex(title->m_proto->m_itemidx);
 					if(proto && (proto->getItemFlag() & ITEM_FLAG_CASTLLAN) && ((proto->getItemNum3() >> 16 & 0xffff) !=  !bCastellan) )
 					{
@@ -2029,7 +2004,7 @@ void CPC::CastllanTitleDelete(int castleZoneindex, bool bExclude, char bCastella
 					}
 				}
 			}
-			else					// castleZoneindex µ¿ÀÏÇÑ °ÍÀ» Áö¿ò
+			else					// castleZoneindex ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			{
 				if( title->m_proto->m_castleNum == castleZoneindex )
 				{
@@ -2096,7 +2071,7 @@ bool CPC::AddExpUseGP(LONGLONG exp)
 				SEND_Q(rmsg, gserver->m_subHelper);
 			}
 
-			// stat point Áõ°¡
+			// stat point ï¿½ï¿½ï¿½ï¿½
 			if (m_job2)
 			{
 				m_statpt_remain += 3;
@@ -2113,7 +2088,7 @@ bool CPC::AddExpUseGP(LONGLONG exp)
 				SEND_Q(rmsg, m_desc);
 			}
 
-			// ·¹º§¾÷ È¿°ú
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¿ï¿½ï¿½
 			LevelUp(true);
 
 			{
@@ -2157,7 +2132,7 @@ void CCharacter::AddEP(int ep_ )
 		m_ep = 0;
 }
 
-// [101214: selo] º¸»ó ¾ÆÀÌÅÛ µå·Ó ¼öÁ¤
+// [101214: selo] ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 bool CPC::CheckInvenForQuestPrize(const CQuestProto* pQuestProto, const int& optItemIndex)
 {
 	if( NULL == m_desc )
@@ -2184,7 +2159,7 @@ bool CPC::CheckInvenForQuestPrize(const CQuestProto* pQuestProto, const int& opt
 		++totalPrizeSpace_Normal;
 	}
 
-	// ¿É¼Ç ¾ÆÀÌÅÛ
+	// ï¿½É¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if(optItemIndex != -1)
 	{
 		for (int j =0; j < QUEST_MAX_OPTPRIZE; j++)
@@ -2262,8 +2237,8 @@ bool CPC::CheckInvenForProduceNoramlPrize(const int& itemdbIndex, const int& gra
 bool CPC::CheckInvenForProduceRandomPrize()
 {
 	// [101216: selo]
-	// ÇöÀç±îÁöÀÇ »óÈ²À¸·Î Normal ÀÎº¥À¸·Î¸¸ µé¾î°¡±â¿¡ Normal ÀÎº¥ÀÇ °ø°£À¸·Î¸¸ ºñ±³
-	// ±×¸®°í ¹«°Ô´Â ¸ðµÎ 1·Î °¡Á¤ÇÔ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È²ï¿½ï¿½ï¿½ï¿½ Normal ï¿½Îºï¿½ï¿½ï¿½ï¿½Î¸ï¿½ ï¿½ï¿½î°¡ï¿½â¿¡ Normal ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¸ï¿½ ï¿½ï¿½
+	// ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ô´ï¿½ ï¿½ï¿½ï¿½ 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if( this->m_inventory.getEmptyCount() < 1 )
 	{
 		CNetMsg::SP rmsg(new CNetMsg);
@@ -2457,7 +2432,7 @@ void CPC::ChangeQuickSlot( CItem* item, int itemSlotType )
 #ifdef XTRAP
 void CPC::xTrapSessionInit()
 {
-	XTrap_S_SessionInit( 120, CSFILE_NUM, gserver->m_XTrapMap, m_xtrapSessionBuf );// ITS-5545 °¡¹Ì°í ¿äÃ»¿¡ ÀÇÇÑ Áø´Ü½Ã°£ ¼öÁ¤ (300 -> 120 )
+	XTrap_S_SessionInit( 120, CSFILE_NUM, gserver->m_XTrapMap, m_xtrapSessionBuf );// ITS-5545 ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½ï¿½Ã»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ü½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ (300 -> 120 )
 }
 #endif
 
@@ -2618,7 +2593,7 @@ bool CPC::isWarZone()
 
 	CWarCastle* castle = NULL;
 
-	//°ø¼º Áö¿ª¿¡ Á¸ÀçÇÏ´Â Ä³¸¯ÅÍ ¹× °¡´É ·¹º§ Ã¼Å©
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 	if(zone_index == ZONE_MERAC)
 	{
 		castle = CWarCastle::GetCastleObject(ZONE_MERAC);
